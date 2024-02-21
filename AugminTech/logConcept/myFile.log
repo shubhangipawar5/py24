@@ -1,0 +1,11 @@
+CRITICAL:root:Critical message
+ERROR:root:my error
+CRITICAL:root:Critical message
+ERROR:root:my error
+CRITICAL:root:Critical message
+ERROR:root:my error
+CRITICAL:root:Critical message
+ERROR:root:my error
+WARNING:root:my warning
+INFO:root:my info
+DEBUG:root:my debug

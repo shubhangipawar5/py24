@@ -1,0 +1,310 @@
+# without return type and no arguments
+def greet():
+    print("Hello")
+
+greet()
+
+# with return type and no arguments
+def greet(name):
+    return "Hello " + name
+
+res = greet("Shubhangi")
+print(res)
+
+def find_square(num):
+    result = num * num
+    return result
+
+# function call
+square = find_square(3)
+
+print('Square:',square)
+
+# Python Library Function
+import math
+print(math.sqrt(9))
+
+# Python Keyword Argument
+# "In keyword arguments, arguments are assigned based on the name of arguments. For example,"
+
+def display_info(first_name, last_name):
+    print('First Name:', first_name)
+    print('Last Name:', last_name)
+
+display_info(last_name = 'Cartman', first_name = 'Eric')
+
+# Python Function With Arbitrary Arguments
+# Sometimes, we do not know in advance the number of arguments that will be passed into a function.
+# program to find sum of multiple numbers
+
+def find_sum(*numbers):
+    result = 0
+
+    for num in numbers:
+        result = result + num
+
+    print( "Sum = ", result )
+    print(type(result))
+
+
+# function call with 3 arguments
+find_sum( 1, 2, 3 )
+
+# function call with 2 arguments
+find_sum( 4, 9 )
+
+
+# Example of a recursive function
+def factorial(x):
+    """This is a recursive function
+    to find the factorial of an integer"""
+
+    if x == 1:
+        return 1
+    else:
+        return (x * factorial(x-1))
+
+
+fact = factorial(5)
+print(fact)
+# print("The factorial of", num, "is", factorial(num))
+
+# factorial(3)          # 1st call with 3
+# 3 * factorial(2)      # 2nd call with 2
+# 3 * 2 * factorial(1)  # 3rd call with 1
+# 3 * 2 * 1             # return from 3rd call as number=1
+# 3 * 2                 # return from 2nd call
+# 6                     # return from 1st call
+
+# Python Lambda/Anonymous Function
+# In Python, a lambda function is a special type of function without the function name. For example,
+#
+# lambda : print('Hello World')
+# No arguments
+'''
+greet = lambda : print("Hello Pycharm")
+# with arguments
+sum = lambda x,y : print(x+y)
+
+greet()
+sum(2,3)
+'''
+
+
+print('********************')
+# function scope
+z=5
+def sum():
+    global z     #to aaccess global variable we hv used global keyword
+    print(z)    #5
+    z=10
+    print(z)     #10
+
+sum()
+
+
+# Default arguments in function
+
+def greet(name="shubhangi"):
+    print("Hello"+' '+name)
+
+greet()   #shubhangi
+greet("Aayush")   #"Aayush
+
+
+#with arguments
+def number(*c):
+    print(c)
+    print( type( c ) )      #tuple
+
+number(10,20,30)     #pass arguments as tupple
+
+
+
+#with kw arguments
+
+def data(**info):
+    print(info)
+    print(type(info))     #dict
+    for i in info:
+        print(i,info[i],sep=':')
+
+data(firstName = "chinmay",lastName = "deshpande",middleName = "shirish")
+#pass arguments as dictionary
+
+
+'''
+# lamda arguments : expression  
+'''
+x= lambda a: a+10
+
+print(x(5))
+
+# program 2
+y = lambda a,b: a*b
+a = y(13,2)
+print(a)
+
+# program 3
+z = lambda a,b,c:a+b+c
+print(z(12,3,4))
+
+# program 4  // lambda func as return type
+def myfunc():
+    return lambda a,b:a*b
+x = myfunc()
+#x = lambda a,b:a*b
+print(x(12,4))
+
+
+# lambda function as an argument
+x= lambda a: a+10
+
+def sum1(y):
+    print(y(9))
+sum1(x)
+
+""" map()
+map(fun, iter)
+Parameters :
+
+fun : It is a function to which map passes each element of given iterable. iter : It is a iterable which is to be mapped.
+
+"""
+
+num = (1,2,3,4,5,)
+def add(n):
+    return n*2
+
+res1=map(add,num)
+print(list(res1))
+
+# programm 5 :  map() with lambda function
+l=[15,14,13,12,11]
+
+s1= map(lambda x: x*2, l)
+
+print(list(s1))
+
+# if - else with lambda
+# Code to use lambda function with if-else
+Minimum = lambda x, y : x if (x < y) else y
+# x if (x < y) else y  ->   print x  if(x<y) else print y
+print('The greater number is:', Minimum( 35, 74 ))
+
+
+s3=lambda x: x+x,num
+print(s3)
+
+# Filter function
+
+listB = [24,5,6,7,8,4,55,66,7]
+def filres():
+    el=[]
+    for i in listB:
+        if i > 18:
+           el.append(i)
+    print(el)
+
+
+res2= filter(filres(),listB)
+print(res2)
+
+
+# filter with lambda function
+
+res4=filter(lambda x: x>18, listB)
+
+print(list(res4))
+
+
+from functools import reduce
+# reduce()
+'''
+
+n1=[1,2,3,4,5,6,7,8,9]
+def s1():
+    total = 0
+    for i in n1:
+        total +=i
+    print(total)
+# s1(n1)
+
+myr=reduce(s1(),n1)
+print(myr)
+'''
+# reduce with lambda func
+listA = [11,22,33]
+q4=reduce(lambda x,y:x+y,listA)
+print(q4)
+
+# reduce with lambda function
+
+# New programms
+
+people = [
+    {
+        'name': 'Alice',
+        'age': 30 ,
+        'city':"pune",
+        "skills":["python","java","javascript"]
+    },
+    {
+        'name': 'Bob',
+        'age': 22,
+        'city':"sangamner",
+        "skills":["css3","sql","powerBI"]
+
+    },
+    {
+        'name': 'Charlie',
+        'age': 28,
+        'city':"pune",
+        "skills":["css3","sql","powerBI"]
+    },
+    {
+        'name': 'David',
+        'age': 26,
+        'city':"nagpur",
+        "skills":["css3","flutter","c#"]
+    },
+    {
+        'name': 'Eve',
+        'age': 19,
+        'city':"jaipur",
+        "skills":["css3","flutter","c#"]
+    }
+]
+#people = [dic1,dic2,dic3,dic4,dict5]
+# print all cities of dict
+for i in people:
+    print( i.get('city') )
+
+
+
+# with lambda
+
+q6=map(lambda dic:dic.get('city'),people)
+print(list(q6))
+
+
+#program 2
+# add  git as skill to every people
+print(list(map(lambda person:person['skills'].append("git"),people)))
+print(people)
+for x in people:
+    x['skills'].append("salesforce")
+print(people)
+
+
+# people belong to pune city
+# program3
+q1 = list(filter(lambda person: person['city'] == "pune",people))
+for a in q1:
+    print(a['name'])
+
+
+
+
+
+
